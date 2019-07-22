@@ -1,0 +1,20 @@
+{
+  "name": "simple-query-params",
+  "version": "0.0.1",
+  "description": "Simple query param manipulation library. Tiny and strongly typed.",
+  "main": "index.ts",
+  "scripts": {
+    "test": "ts test"
+  },
+  "keywords": [
+    "query",
+    "params",
+    "typescript",
+    "url"
+  ],
+  "author": "ilsanchez",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^3.5.3"
+  }
+}
