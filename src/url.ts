@@ -35,6 +35,10 @@ export class Url {
     return this;
   }
 
+  public getParam(name: string): QueryParam {
+    return this._params.find((p: QueryParam) => p.name === name);
+  }
+
   private _initialize(url: string): void {
     const [baseUrl, rawParams] = this._extractUrlParts(url);
     this._baseUrl = baseUrl;

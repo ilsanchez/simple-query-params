@@ -3,14 +3,15 @@
     "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
-    "noImplicitAny": false,
-
+    "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "dist",
-    "declaration": true
+    "outDir": "lib",
+    "declaration": true,
+    "lib": ["es2015", "dom"],
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["src/**/*.spec.ts", "node_modules"]
