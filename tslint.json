@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "tslint:latest"
+  ],
+  "rules": {
+    "quotemark": {"options": "single"},
+    "ordered-imports": false,
+    "interface-name": [true, "never-prefix"],
+    "no-implicit-dependencies": [true, "dev"],
+    "variable-name": {
+      "options": "allow-leading-underscore"
+    },
+    "trailing-comma": false
+  }
+}

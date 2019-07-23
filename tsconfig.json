@@ -8,6 +8,7 @@
     "preserveConstEnums": true,
     "sourceMap": true,
     "forceConsistentCasingInFileNames": true,
+    "strict": true,
     "outDir": "lib",
     "declaration": true,
     "lib": ["es2015", "dom"],
