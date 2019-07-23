@@ -2,9 +2,9 @@ import { QueryParam, QueryParamType } from "./query-params";
 import { URL_SPLIT_TOKEN, PARAMETER_SPLIT_TOKEN } from "./constants";
 
 export class Url {
-  private _baseUrl: string;
+  private _baseUrl!: string;
   private _originalUrl: string;
-  private _params: QueryParam[];
+  private _params!: QueryParam[];
 
   constructor(url: string) {
     this._originalUrl = url;

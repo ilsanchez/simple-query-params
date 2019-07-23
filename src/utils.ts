@@ -32,4 +32,5 @@ export const getUnderlyingType = (
       return "array";
     }
   }
+  return null;
 };
