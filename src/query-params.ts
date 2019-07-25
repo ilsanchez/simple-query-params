@@ -1,11 +1,11 @@
-import { normalizeValue, getUnderlyingType } from './utils';
+import { normalizeValue, getUnderlyingType } from "./utils";
 
 export type QueryParamType = string | number | string[];
-export type QueryParamRawType = 'string' | 'number' | 'array';
+export type QueryParamRawType = "string" | "number" | "array";
 
 export class QueryParam {
   private _name: string;
-  private _value: QueryParamType;
+  private _value!: QueryParamType;
   private _type: QueryParamRawType;
 
   constructor(name: string, value: QueryParamType) {
@@ -13,16 +13,14 @@ export class QueryParam {
     this._name = name;
     this._type = underlyingType;
 
-    if (underlyingType === 'string') {
+    if (underlyingType === "string") {
       this._value = value;
-    } else if (underlyingType === 'number') {
+    } else if (underlyingType === "number") {
       this._value = Number(value);
-    } else if (underlyingType === 'array') {
-      this._value = Array.isArray(value) ? value : (value as string).split(',');
     } else {
-      throw new Error(
-        'Invalid value for query param. It must be one of: "string" | "number" | "Array<string>"',
-      );
+      this._value = Array.isArray(value)
+        ? value.map(v => v.trim())
+        : (value as string).split(",").map(v => v.trim());
     }
   }
 
@@ -43,26 +41,28 @@ export class QueryParam {
   }
 
   get isString(): boolean {
-    return this._type === 'string';
+    return this._type === "string";
   }
 
   get isNumber(): boolean {
-    return this._type === 'number';
+    return this._type === "number";
   }
 
   get isArray(): boolean {
-    return this._type === 'array';
+    return this._type === "array";
   }
 
-  public setValue(value: QueryParamType, mode?: 'append' | 'replace') {
-    if (this._type === 'number' || this._type === 'string') {
+  public setValue(value: QueryParamType, mode?: "append" | "replace") {
+    const underlyingType = getUnderlyingType(value);
+    this._type = underlyingType;
+    if (this._type === "number" || this._type === "string") {
       this._value = value;
     } else {
       const valueIsArray = Array.isArray(value);
       const parsedValue = valueIsArray ? [value] : (value as []);
       this._value =
-        mode === 'append'
-          ? (this._value as []).concat(parsedValue as [])
+        mode === "append"
+          ? (this._value as []).concat(...parsedValue as any)
           : value;
     }
   }
