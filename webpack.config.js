@@ -34,7 +34,7 @@ module.exports = {
 		path: path.resolve(__dirname, 'lib/bundle')
 	},
 
-	plugins: [new webpack.ProgressPlugin(), new HtmlWebpackPlugin()],
+	plugins: [new webpack.ProgressPlugin(), /*new HtmlWebpackPlugin()*/],
 
 	module: {
 		rules: [
