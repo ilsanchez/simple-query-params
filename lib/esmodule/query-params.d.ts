@@ -1,5 +1,5 @@
 export declare type QueryParamType = string | number | string[];
-export declare type QueryParamRawType = "string" | "number" | "array";
+export declare type QueryParamRawType = 'string' | 'number' | 'array';
 export declare class QueryParam {
     private _name;
     private _value;
@@ -12,5 +12,5 @@ export declare class QueryParam {
     readonly isString: boolean;
     readonly isNumber: boolean;
     readonly isArray: boolean;
-    setValue(value: QueryParamType, mode?: "append" | "replace"): void;
+    setValue(value: QueryParamType, mode?: 'append' | 'replace'): void;
 }

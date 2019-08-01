@@ -1,5 +1,5 @@
-import { QueryParam, QueryParamType } from "./query-params";
-import { URL_SPLIT_TOKEN, PARAMETER_SPLIT_TOKEN } from "./constants";
+import { QueryParam, QueryParamType } from './query-params';
+import { URL_SPLIT_TOKEN, PARAMETER_SPLIT_TOKEN } from './constants';
 
 export class Url {
   private _baseUrl!: string;
@@ -21,6 +21,10 @@ export class Url {
     return this._baseUrl;
   }
 
+  set baseUrl(bsUrl: string) {
+    this._baseUrl = bsUrl;
+  }
+
   get originalUrl(): string {
     return this._originalUrl;
   }
@@ -28,7 +32,7 @@ export class Url {
   public setValue(
     name: string,
     value: QueryParamType,
-    mode?: "append" | "replace"
+    mode?: 'append' | 'replace'
   ): this {
     const param = this._params.find((p: QueryParam) => p.name === name);
     if (param) {
@@ -46,24 +50,22 @@ export class Url {
   private _initialize(url: string): void {
     const [baseUrl, rawParams] = this._extractUrlParts(url);
     this._baseUrl = baseUrl;
-    if (rawParams !== "") {
-      this._params = this._extractQueryParams(rawParams);
-    } else {
-      this._params = [];
-    }
+    this._params = rawParams !== ''
+      ? this._params = this._extractQueryParams(rawParams)
+      : this._params = [];
   }
 
   private _extractUrlParts(url: string): [string, string] {
     const splitted = url.split(URL_SPLIT_TOKEN);
     return splitted.length === 2
       ? [splitted[0], splitted[1]]
-      : [splitted[0], ""];
+      : [splitted[0], ''];
   }
 
   private _extractQueryParams(rawParams: string): QueryParam[] {
     const splittedQP = rawParams.split(PARAMETER_SPLIT_TOKEN);
     return splittedQP.map((param: string) => {
-      const [name, value] = param.split("=");
+      const [name, value] = param.split('=');
       return new QueryParam(name, value);
     });
   }

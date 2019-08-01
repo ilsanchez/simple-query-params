@@ -9,7 +9,7 @@ It can be used to add query params to url or modify those that url contains.
 This library exposes two classes, Url and QueryParams.
 
 ### Url
-``` javascript
+``` typescript
 // You can build one Url instance passing a url
 
 const url = new Url('https://www.fakeurl.com?foo=bar');
@@ -34,3 +34,29 @@ url.getParam(name: string); // Gets parameter, finding it by it name
 ```
 
 ### Query Param
+Create new instance of this object make no sense, its usefull only when its accesed through `Url#getParam`.
+``` typescript
+  
+  const queryParam = url.getParam('name');
+
+  // This class exposes the following get/set methods:
+
+  queryParam.stringified // returns formated parameter. p.e: 'name=value' instead {name, value}
+
+  queryParam.value // returns parameter value
+
+  queryParam.name // returns parameter name
+
+  queryParam.type // returns the undelying type of parameter. p.e: 'value' will return 'string', 123 and '123' will return 'number'. And 'v,a,l,u,e' will return 'array
+
+  queryParam.isString // Returns true if undelying value type is string, false otherwise
+
+  queryParam.isNumber // Returns true if undelying value type is number, false otherwise
+
+  queryParam.isArray // Returns true if undelying value type is string, false otherwise
+
+  // Only exposes one method
+
+  queryParam.setValue(value: QueryParamType, mode?: 'append' | 'replace') // change de value of parameter. mode argument works like Url#setValue
+
+```
