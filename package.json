@@ -1,6 +1,6 @@
 {
   "name": "simple-query-params",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple, tiny, typed and tested library to manage query params",
   "main": "index.js",
   "types": "lib/index.d.ts",
