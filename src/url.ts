@@ -38,7 +38,7 @@ export class Url {
     if (param) {
       param.setValue(value, mode);
     } else {
-      this._params.concat([new QueryParam(name, value)]);
+      this._params = this._params.concat(new QueryParam(name, value));
     }
     return this;
   }
