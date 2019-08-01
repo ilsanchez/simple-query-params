@@ -1,13 +1,12 @@
 {
   "name": "simple-query-params",
   "version": "1.0.0",
-  "description": "My webpack project",
-  "main": "./src/index.ts",
-  "types": "src/index.ts",
+  "description": "Simple, tiny, typed and tested library to manage query params",
+  "main": "./lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest --notify --config=jest.config.js",
-    "build": "webpack",
-    "build:all": "tsc -m es6 --outDir lib/esmodule && tsc -m amd --outDir lib/amd && webpack",
+    "build": "tsc",
     "start": "webpack-dev-server",
     "lint": "./node_modules/.bin/tslint --project ./tsconfig.json"
   },
@@ -17,6 +16,10 @@
     "typescript",
     "url"
   ],
+  "repository": {
+    "type": "Github",
+    "url": "https://github.com/ilsanchez/simple-query-params"
+  },
   "author": "ilsanchez",
   "license": "ISC",
   "dependencies": {
