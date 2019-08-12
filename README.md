@@ -1,5 +1,7 @@
 # Simple query params
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/ade72ee3b77b77c6cca0/maintainability)](https://codeclimate.com/github/ilsanchez/simple-query-params/maintainability)
+
 Simple, tiny, typed and tested library to manage with ease query param.
 
 It can be used to add query params to url or modify those that url contains.
