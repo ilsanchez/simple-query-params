@@ -11,10 +11,14 @@ export class Url {
     this._initialize(url);
   }
 
-  get builtUrl() {
-    return `${this._baseUrl}${URL_SPLIT_TOKEN}${this._params
+  get builtUrl(): string {
+    return `${this._baseUrl}${URL_SPLIT_TOKEN}${this.hash}`;
+  }
+
+  get hash(): string {
+    return this._params
       .map((param: QueryParam) => param.stringified)
-      .join(PARAMETER_SPLIT_TOKEN)}`;
+      .join(PARAMETER_SPLIT_TOKEN);
   }
 
   get baseUrl(): string {
@@ -50,9 +54,10 @@ export class Url {
   private _initialize(url: string): void {
     const [baseUrl, rawParams] = this._extractUrlParts(url);
     this._baseUrl = baseUrl;
-    this._params = rawParams !== ''
-      ? this._params = this._extractQueryParams(rawParams)
-      : this._params = [];
+    this._params =
+      rawParams !== ''
+        ? (this._params = this._extractQueryParams(rawParams))
+        : (this._params = []);
   }
 
   private _extractUrlParts(url: string): [string, string] {

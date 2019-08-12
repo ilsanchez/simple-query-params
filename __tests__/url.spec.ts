@@ -51,3 +51,8 @@ test('Create instance without params', () => {
   const url = new Url('https://www.mysuperoriginalurl.dev');
   expect(url).toBeInstanceOf(Url);
 });
+
+test('Should retyurn correct hash', () => {
+  const url = new Url(rawUrl);
+  expect(url.hash).toBe('foo=bar&baz=420&qpa=p,a,r,a,m');
+});

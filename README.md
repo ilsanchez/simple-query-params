@@ -6,6 +6,12 @@ Simple, tiny, typed and tested library to manage with ease query param.
 
 It can be used to add query params to url or modify those that url contains.
 
+## Download
+
+```
+npm install simple-query-params
+```
+
 ## API
 
 This library exposes two classes, Url and QueryParams.

@@ -5,6 +5,7 @@ export declare class Url {
     private _params;
     constructor(url: string);
     readonly builtUrl: string;
+    readonly hash: string;
     baseUrl: string;
     readonly originalUrl: string;
     setValue(name: string, value: QueryParamType, mode?: 'append' | 'replace'): this;
